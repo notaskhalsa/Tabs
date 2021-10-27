@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Tabs</title>
+</head>
+<body>
+    <section>
+        <div class="title">
+            <h1>About</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, ea.</p>
+        </div>   
+
+        <div class="about-center section-center">
+            <article class="about-img">
+                <img src="./images/banner.jpg" alt="about img">
+            </article>
+            <div class="right-container">
+                <article class="about">
+                    <div class="btn-container">
+                        <div class="tab-btn" data-id="history">History</div>
+                        <div class="tab-btn" data-id="vision">Vision</div>
+                        <div class="tab-btn" data-id="goals">Goals</div>
+                    </div>
+                </article>
+                <article class="about-content">
+                    <div class="content active" id="history">
+                        <h4>History</h4>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum hic possimus corporis sed unde nam, adipisci esse doloribus? Facere, laborum! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora autem commodi minima quidem accusamus vel, unde maxime quae nam, rerum ratione asperiores, distinctio earum repudiandae pariatur eaque veniam vero temporibus! </p>
+                    </div>
+                    <div class="content " id="vision">
+                        <h4>Vision</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa ipsa praesentium ducimus neque itaque similique quisquam ipsam, reprehenderit vel consectetur! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi libero voluptatum, numquam atque blanditiis illum iure. Dolores facere similique deserunt fugiat deleniti! Voluptate doloribus sed recusandae nobis magni vel neque. </p>
+                    </div>
+                    <div class="content " id="goals">
+                        <h4>Goals</h4>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam rerum unde quo aut corporis incidunt asperiores error, optio rem laboriosam! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi cum natus nesciunt facere sit necessitatibus odio soluta, placeat doloribus dolore corporis dignissimos. Possimus et nemo voluptatem, eius optio quod exercitationem. </p>
+                    </div>
+                </article>
+            </div>
+            
+        </div>
+    </section>
+   
+
+    <script>
+        const btns = document.querySelectorAll('.tab-btn');
+        const about = document.querySelector('.about');
+        const articles = document.querySelectorAll('.content');
+
+        about.addEventListener('click', function(e){
+            const id = e.target.dataset.id;
+            if(id){
+                btns.forEach(function(btn){
+                    btn.classList.remove("active");
+                    e.target.classList.add("active");
+                });
+                articles.forEach(function(article){
+                    article.classList.remove("active");
+                });
+                const element = document.getElementById(id);
+                element.classList.add("active");
+            }
+        });
+    </script>
+</body>
+</html>
